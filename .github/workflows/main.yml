@@ -1,0 +1,17 @@
+name: Hello World Pipeline
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Set up CentOS container
+      uses: docker://centos:latest
+
+    - name: Print Hello World
+      run: echo "Hello World"
