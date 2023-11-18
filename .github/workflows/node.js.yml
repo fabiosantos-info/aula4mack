@@ -1,0 +1,32 @@
+name: Main Branch Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: 14  # Escolha a versão do Node.js desejada
+
+    - name: Install Dependencies
+      run: npm install
+
+    - name: Run Build
+      run: npm run build  # Substitua pelo seu comando de construção
+
+
+
+        
+    - run: npm ci
+    - run: npm run build --if-present
+    - run: npm test
